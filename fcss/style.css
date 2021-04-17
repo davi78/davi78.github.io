@@ -1,0 +1,21 @@
+body{
+    background-color:aliceblue;
+}
+
+.ramadhan{
+    text-align: center;
+    font-size: 30px;
+}
+
+p{
+    text-align: center;
+    background-color: red;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    color: yellow;
+    margin-top: 1px;
+    margin-bottom:auto;
+    margin-left: 360px;
+    margin-right: 360px;
+    font-size: 20px;
+}
