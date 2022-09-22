@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman ini tidak tersedia</title>
+    <style>
+        body {
+            background-color: aqua;
+            margin: 40px;
+        }
+
+        .back {
+            background: aquamarine;
+            padding: 30px;
+            margin: 0 auto;
+        }
+
+        .hari {
+            text-align: center;
+            font-size: 25px;
+            height: 65px;
+            background-color: olivedrab;
+            border-radius: 60px;
+        }
+
+        .jam {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 27px;
+            margin-top: -58px;
+        }
+
+        .tanggal {
+            font-size: 20px;
+            margin-top: 50px;
+            border-radius: 100px;
+            background-color: orange;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">
+        <p id="s" class="hari">Hari</p>
+        <p id="jam" class="jam">Jam</p>
+        <h6 id="tanggal" class="tanggal">Tanggal</h6>
+        <img src="img/muti.jpg">
+    </div>
+    <script>
+        function kurang_dari_10(s) {
+            var anu = s < 10 ? '0' + s : s
+            return anu
+        }
+        function waktu() {
+            var date = new Date()
+            var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+            var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+            document.getElementById('s').innerText = "Hari " + hari[date.getDay()]
+            document.getElementById('jam').innerText = kurang_dari_10(date.getHours()) + ":" + kurang_dari_10(date.getMinutes()) + ":" + kurang_dari_10(date.getSeconds())
+            document.getElementById('tanggal').innerText = date.getDate() + " " + bulan[date.getMonth()] + " " + date.getFullYear()
+        }
+        setInterval(function () {
+            waktu()
+        }, 1000)
+    </script>
+</body>
+
+</html>
