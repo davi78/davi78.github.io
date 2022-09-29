@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="mutiara hapsari <3">
-    <meta name="keywords" content="davi78, davi78 github, davi alfajr, mutiara hapsari, mutiara hapsari github, mutiara hapsari binjai, binjai, ">
-    
+    <meta name="keywords"
+        content="davi78, davi78 github, davi alfajr, mutiara hapsari, mutiara hapsari github, mutiara hapsari binjai, binjai, ">
+
     <title>Halaman ini tidak tersedia</title>
-    
-    <link rel="shortcut icon" href="https://milkshake-production-user-images.imgix.net/f6f69399-5fbd-4109-86e3-3fcd502b84e0?auto=format&amp;w=828" type="image/x-icon">
+
+    <link rel="shortcut icon"
+        href="https://milkshake-production-user-images.imgix.net/f6f69399-5fbd-4109-86e3-3fcd502b84e0?auto=format&amp;w=828"
+        type="image/x-icon">
     <style>
         body {
             background-color: aqua;
@@ -29,6 +32,7 @@
             height: 65px;
             background-color: olivedrab;
             border-radius: 60px;
+            margin-top: -18px;
         }
 
         .jam {
@@ -45,20 +49,28 @@
             background-color: orange;
             text-align: center;
         }
+
         .pic {
-            width: 200px;
+            display: block;
+            margin: auto;
+            width: 270px;
             border-radius: 50px;
-            top: 20%;
-            left: 20%;
             padding: 5px;
-            background: linear-gradient(107deg, 
-            red, blue 50%, transparent 50%);
+            background: linear-gradient(107deg,
+                    red, blue 50%, transparent 50%);
             background-size: 250%;
             background-position: 100% 100%;
             transition: background .5s;
         }
+
         .pic:hover {
             background-position: 0% 0%;
+        }
+        .co {
+            margin: 0 10%;
+            font-size: 15px;
+            text-align: center;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
     </style>
 </head>
@@ -68,8 +80,14 @@
         <p id="s" class="hari">Hari</p>
         <p id="jam" class="jam">Jam</p>
         <h6 id="tanggal" class="tanggal">Tanggal</h6>
-        <img src="img/muti.jpg" class="pic">
-        <img src="img/muti.jpg" class="pic">
+        <div class="co">
+            <img src="img/muti.jpg" class="pic">
+            <span>[ Davi ALFajr - Mutiara Hapsari ]</span><br>
+            <span>Muti berumur : <span id="umur-muti"></span></span><br>
+            <span>Davi berumur : <span id="umur-davi"></span></span><br><br>
+            <span id="waktu_lalu"></span><br>
+            <span id="tanggal_">Hari</span><br>
+        </div>
     </div>
     <script>
         function kurang_dari_10(s) {
@@ -85,8 +103,77 @@
             document.getElementById('tanggal').innerText = date.getDate() + " " + bulan[date.getMonth()] + " " + date.getFullYear()
         }
         setInterval(function () {
-            waktu()
+            waktu(), waktu_lalu(), ultah_muti(), ultah_davi()
         }, 1000)
+        function waktu_lalu() {
+            var hari_ini = new Date()
+            var target = new Date("01/12/2019") //01/14/2019
+            var anu = document.getElementById('waktu_lalu')
+
+            var tahun, bulan, hari, jam, menit, detik;
+
+            var waktu = (hari_ini - target) / 1000
+
+            tahun = parseInt(waktu / 31536000)
+            waktu = waktu % 31536000
+
+            bulan = parseInt(waktu / 2629700)
+            waktu = waktu % 2629700
+
+            hari = parseInt(waktu / 86400)
+            waktu = waktu % 86400
+
+            jam = parseInt(waktu / 3600)
+            waktu = waktu % 3600
+
+            menit = parseInt(waktu / 60)
+            detik = parseInt(waktu % 60)
+            
+            anu.innerHTML = `${tahun} tahun ${bulan} bulan ${hari} hari, ${kurang_dari_10(jam)} jam ${kurang_dari_10(menit)} menit ${kurang_dari_10(detik)} detik`
+            var hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+            var bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+            document.getElementById('tanggal_').innerText = hari[target.getDay()] + ", " +target.getDate() + " " + bulan[target.getMonth()] + " " + target.getFullYear()
+        }
+        function ultah_muti() {
+            var hari_ini = new Date()
+            var target = new Date("08/25/2006")
+            var anu = document.getElementById('umur-muti')
+
+            var tahun, bulan, hari;
+
+            var waktu = (hari_ini - target) / 1000
+
+            tahun = parseInt(waktu / 31536000)
+            waktu = waktu % 31536000
+
+            bulan = parseInt(waktu / 2629700)
+            waktu = waktu % 2629700
+
+            hari = parseInt(waktu / 86400)
+            waktu = waktu % 86400
+            anu.innerHTML = `${tahun} tahun ${bulan} bulan ${hari} hari`
+
+        }
+        function ultah_davi() {
+            var hari_ini = new Date()
+            var target = new Date("10/08/2004")
+            var anu = document.getElementById('umur-davi')
+
+            var tahun, bulan, hari;
+
+            var waktu = (hari_ini - target) / 1000
+
+            tahun = parseInt(waktu / 31536000)
+            waktu = waktu % 31536000
+
+            bulan = parseInt(waktu / 2629700)
+            waktu = waktu % 2629700
+
+            hari = parseInt(waktu / 86400)
+            waktu = waktu % 86400
+            anu.innerHTML = `${tahun} tahun ${bulan} bulan ${hari} hari`
+
+        }
     </script>
 </body>
 
