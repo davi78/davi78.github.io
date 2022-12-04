@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+        }
+
+        #isi {
+            margin: 0 25%;
+            padding: 10px;
+            height: 100px;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+
+        p {
+            margin: 10px;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        button {
+            margin: 2em;
+            position: relative;
+            width: 150px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 10px;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="isi">
+        <p>Point kamu : <span id="nomor"> - </span></p>
+        <button onclick="tambah()">Tambah point</button>
+    </div>
+</body>
+<script>
+    function randomColor() {
+        return Math.floor(Math.random() * 255);
+    }
+    function randomangka() {
+        return Math.floor(Math.random() * 190);
+    }
+    function tambah() {
+        var nomor = document.getElementById("nomor")
+        var body = document.getElementById('isi')
+        if (nomor.textContent == ' - ') {
+            nomor.innerHTML = "1"
+        } else if (parseInt(nomor.textContent) >= 49 && parseInt(nomor.textContent) <= 149) {
+            body.addEventListener('click', () => {
+                body.style.backgroundColor = 'rgba(' + randomColor() + ',' + randomColor() + ',' + randomColor() + ')'
+            })
+            nomor.innerHTML = parseInt(nomor.textContent) + 1
+        } else if (parseInt(nomor.textContent) >= 299 && parseInt(nomor.textContent) <= 499) {
+            body.addEventListener('click', () => {
+                body.style.backgroundColor = 'green'
+            })
+            nomor.innerHTML = parseInt(nomor.textContent) + (randomColor() - randomangka())
+        } else if (parseInt(nomor.textContent) >= 1000) {
+            nomor.innerHTML = parseInt(nomor.textContent) * 0
+        } else {
+            body.addEventListener('click', () => {
+                body.style.backgroundColor = 'aqua'
+            })
+            nomor.innerHTML = parseInt(nomor.textContent) + randomangka()
+        }
+    }
+    var audio = new Audio('1.mp3');audio.play();
+</script>
+
+</html>
