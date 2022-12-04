@@ -42,6 +42,10 @@
 
 <body>
     <div id="isi">
+        <audio autoplay>
+            <source src="Alan Walker - Unity (8D AUDIO) ft. Walkers 🎧.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
         <p>Point kamu : <span id="nomor"> - </span></p>
         <button onclick="tambah()">Tambah point</button>
     </div>
@@ -77,7 +81,6 @@
             nomor.innerHTML = parseInt(nomor.textContent) + randomangka()
         }
     }
-    var audio = new Audio('Alan Walker - Unity (8D AUDIO) ft. Walkers 🎧.mp3');audio.play();
 </script>
 
 </html>
