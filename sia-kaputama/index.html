@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sia</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: rgba(9, 188, 233, 0.692);
+        }
+
+
+        .kotak_login {
+            width: 350px;
+            background: rgb(6, 204, 178);
+            /*meletakkan form ke tengah*/
+            margin: 80px auto;
+            padding: 30px 20px;
+        }
+
+        label {
+            font-family: Courier;
+            font-size: 11pt;
+        }
+
+        .form_login {
+            /*membuat lebar form penuh*/
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .tombol_login {
+            background: #46de4b;
+            color: white;
+            font-size: 13px;
+            width: 100%;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+        }
+
+        .tombol_login:hover {
+            background: #46de4b;
+            color: orange;
+            font-size: 11pt;
+            width: 100%;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .judul>span {
+            animation: glow 3.8s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                color: rgb(12, 179, 230);
+                text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+            }
+
+            10%,
+            90% {
+                color: #111;
+                text-shadow: none;
+            }
+        }
+
+        .judul>span:nth-child(2) {
+            animation-delay: .2s;
+        }
+        .judul>span:nth-child(3) {
+            animation-delay: .4s;
+        }
+        .judul>span:nth-child(4) {
+            animation-delay: .6s;
+        }
+        .judul>span:nth-child(5) {
+            animation-delay: .8s;
+        }
+        .judul>span:nth-child(6) {
+            animation-delay: 1s;
+        }
+        .judul>span:nth-child(7) {
+            animation-delay: 1.2s;
+        }
+        .judul>span:nth-child(8) {
+            animation-delay: 1.4s;
+        }
+        .judul>span:nth-child(9) {
+            animation-delay: 1.6s;
+        }
+        .judul>span:nth-child(10) {
+            animation-delay: 1.8s;
+        }
+        .judul>span:nth-child(11) {
+            animation-delay: 2s;
+        }
+        .judul>span:nth-child(12) {
+            animation-delay: 2.1s;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="kotak_login">
+        <div class="judul">
+            <span>S</span>
+            <span>I</span>
+            <span>A</span><br>
+            <span>K</span>
+            <span>A</span>
+            <span>P</span>
+            <span>U</span>
+            <span>T</span>
+            <span>A</span>
+            <span>M</span>
+            <span>A</span>
+        </div><br><br>
+        <form id="post" action="">
+            <label>USERNAME</label>
+            <input type="text" id="npm" name="username" class="form_login" placeholder="Masukkan username">
+            <label>PASSWORD</label>
+            <input type="password" id="pass" name="password" class="form_login" placeholder="Masukkan password"><br><br>
+            <input type="submit" class="tombol_login" value="LOGIN" onclick="login()">
+    </div>
+</body>
+<script>
+    const login = () => {
+        const user = document.getElementById('npm')
+        const pass = document.getElementById('pass')
+        const post = document.getElementById('post')
+        if (user.value == "") {
+            alert("Kamu belum mengisi username")
+            user.focus();
+        } else if (pass.value == "") {
+            alert("Kamu belum mengisi password")
+            pass.focus();
+        } else {
+            alert("Login berhasil kamu akan diarahkan ke web sia kaputama")
+            post.action = `https://sia.kaputama.ac.id/masuk.php?username=${user.value}&password=${pass.value}`
+        }
+    }
+</script>
+
+</html>
