@@ -2229,7 +2229,7 @@ body {
     position: relative;
     margin-top: -5rem;
     padding-right: 1.5rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1px;
     padding-left: 1.5rem;
     text-align: center
 }
@@ -2318,6 +2318,13 @@ body {
 .paragraph {
     margin-bottom: 2rem;
     color: #666;
+    font-size: .9rem;
+    text-transform: uppercase
+}
+
+.view {
+    margin-top: 70px;
+    color: #666f66;
     font-size: .9rem;
     text-transform: uppercase
 }
