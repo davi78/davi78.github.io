@@ -20,6 +20,13 @@ body{
 .greetings > span{
     animation: glow 3.5s ease-in-out infinite;
 }
+
+.bd {
+    font-size: 20px;
+    font-family: monospace;
+    color: blue;
+}
+
 @keyframes glow{
     0%, 100%{
         color: #003cff;
