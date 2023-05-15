@@ -31,12 +31,23 @@
             border-collapse: collapse;
             width: 100%;
             white-space: nowrap;
+            animation: tableFadeIn 3s ease-in-out;
+        }
+
+        @keyframes tableFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         th,
         td {
             padding: 8px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ddd;
         }
 
@@ -82,6 +93,7 @@
                 flex-basis: 50%;
             }
         }
+
     </style>
 </head>
 
@@ -89,17 +101,12 @@
     <div class="container">
         <table>
             <thead>
-                <tr>
-                    <th>Country</th>
-                    <th>Location</th>
-                    <th>Kode Pos</th>
-                    <th>State</th>
-                    <th>City</th>
+                <tr id="header">
+                    <th>Lokasi kamu</th>
                 </tr>
             </thead>
             <tbody id="data-body"></tbody>
         </table>
-        <span id="h3">JSON</span>
     </div>
 
     <script>
@@ -108,17 +115,9 @@
             const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
             fetch(url).then(res => res.json()).then(data => {
                 const tableBody = document.getElementById('data-body');
-                const h3 = document.getElementById('h3');
                 const row = document.createElement('tr');
-                row.innerHTML = `
-                        <td>${data.address.country}</td>
-                        <td>${data.address.city_district}</td>
-                        <td>${data.address.postcode}</td>
-                        <td>${data.address.state}</td>
-                        <td>${data.address.suburb}</td>
-                    `;
+                row.innerHTML = `<td>${data.display_name}</td>`
                 tableBody.appendChild(row);
-                h3.innerHTML = JSON.stringify(data, null, 2)
             }).catch('Error')
         })
     </script>
