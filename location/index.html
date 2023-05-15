@@ -99,6 +99,7 @@
             </thead>
             <tbody id="data-body"></tbody>
         </table>
+        <h3>JSON</h3>
     </div>
 
     <script>
@@ -107,6 +108,7 @@
             const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
             fetch(url).then(res => res.json()).then(data => {
                 const tableBody = document.getElementById('data-body');
+                const h3 = document.getElementById('h3');
                 const row = document.createElement('tr');
                 row.innerHTML = `
                         <td>${data.address.country}</td>
@@ -116,6 +118,7 @@
                         <td>${data.address.suburb}</td>
                     `;
                 tableBody.appendChild(row);
+                h3.innerHTML = JSON.stringify(data, null, 2)
             }).catch('Error')
         })
     </script>
